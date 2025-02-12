@@ -1,16 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import debounce from "lodash.debounce";
 import InfiniteScroll from "react-infinite-scroll-component";
 import styled from "styled-components";
-
 import { RootState } from "../redux/store";
 import { setPage, setResults, setStatus } from "../redux/slices/searchSlice";
 import UserCard from "../components/UserCard";
 import RepositoryCard from "../components/RepositoryCard";
 import SearchInput from "../components/SearchInput";
 import Header from "../components/Header";
+import debounce from "lodash.debounce";
 
 const PER_PAGE = 15; // Items per page
 
@@ -18,8 +17,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding: 0 5rem;
+  align-items: center;
+  padding: 0 3rem;
+  // margin: auto;
   width: 100%;
 `;
 
@@ -51,28 +51,6 @@ const ResultsContainer = styled.div`
     }
   }
 `;
-
-// const ResultsContainer = styled.div`
-//   display: grid;
-//   gap: 1rem;
-//   margin: 1.5rem 0;
-//   width: 100%;
-
-//   /* 3 columns when width > 768px */
-//   @media (min-width: 768px) {
-//     grid-template-columns: repeat(3, 1fr);
-//   }
-
-//   /* 2 columns when width <= 768px */
-//   @media (max-width: 768px) {
-//     grid-template-columns: repeat(2, 1fr);
-//   }
-
-//   /* 1 column when width <= 480px */
-//   @media (max-width: 480px) {
-//     grid-template-columns: repeat(1, 1fr);
-//   }
-// `;
 
 const HeaderContainer = styled.div`
   margin-top: 0.3rem  

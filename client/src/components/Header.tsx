@@ -74,7 +74,7 @@ const Header: React.FC = () => {
           <Subtitle>Search users or repositories below</Subtitle>
         </HeaderText>
       </LogoTextContainer>
-      <ClearCacheButton onClick={clearCache}>Clear</ClearCacheButton>
+      {/* <ClearCacheButton onClick={clearCache}>Clear</ClearCacheButton> */}
     </HeaderContainer>
   );
 };

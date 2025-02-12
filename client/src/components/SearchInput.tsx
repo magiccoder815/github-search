@@ -14,6 +14,7 @@ const InputContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
   transition: all 0.5s ease-in-out;
   margin-top: 0.4rem;
 `;
@@ -39,7 +40,6 @@ const SelectContainer = styled.div`
   display: inline-block;
   width: fit-content;
   box-shadow: var(--box-shadow);
-
 `;
 
 const SelectField = styled.select`
@@ -55,7 +55,7 @@ const SelectField = styled.select`
 
 const DropdownIcon = styled.span`
   position: absolute;
-  right: 0.7rem; /* Adjust position as needed */
+  right: 0.7rem;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;

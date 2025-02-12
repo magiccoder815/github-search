@@ -13,6 +13,7 @@ interface RepositoryCardProps {
     owner: {
       login: string;
       avatar_url: string;
+      html_url: string;
     };
   };
 }
@@ -21,7 +22,7 @@ const CardContainer = styled.div`
   font-family: "Arial Narrow", Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 0.5rem;
   box-shadow: var(--box-shadow);
@@ -34,24 +35,21 @@ const CardContainer = styled.div`
     transform: translateY(-0.2rem);
   }
 `;
-const RepoTitle = styled.div`
-  font-size: 1.3rem;
+const RepoTitle = styled.p`
+  margin-top: 3rem;
+  font-size: 1.2rem;
   font-weight: bold;
+  word-break;
 `;
 
 const Avatar = styled.img`
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  background: blue;
   position: absolute;
   top: 1rem;
-  right: 2rem;
-`;
-
-const TitleLabel = styled.span`
-  font-size: 1rem;
-  font-weight: normal;
-  margin-right: 0.7rem;
+  right: 1rem;
 `;
 
 const Author = styled.p`
@@ -84,6 +82,7 @@ const RepoInfoContainer = styled.div`
 const RepoLink = styled.a`
   display: flex;
   justify-content: center;
+  align-items: center;
   text-decoration: none;
   font-weight: bold;
   line-height: 1.2rem;
@@ -101,21 +100,20 @@ const HeaderLogo = styled.img`
 
 const RepositoryCard: React.FC<RepositoryCardProps> = ({ repo }) => {
   const truncatedDescription = repo.description
-    ? repo.description.length > 50
-      ? `${repo.description.substring(0, 50)}...`
+    ? repo.description.length > 40
+      ? `${repo.description.substring(0, 40)}...`
       : repo.description
     : "No description";
 
   return (
     <CardContainer>
-      <Avatar
-        src={repo.owner.avatar_url}
-        alt={`${repo.owner.login}'s avatar`}
-      />
-      <RepoTitle>
-        <TitleLabel>Title:</TitleLabel>
-        {repo.name}
-      </RepoTitle>
+      <a href={repo.owner.html_url} target="_blank" rel="noopener noreferrer">
+        <Avatar
+          src={repo.owner.avatar_url}
+          alt={`${repo.owner.login}'s avatar`}
+        />
+      </a>
+      <RepoTitle>{repo.name}</RepoTitle>
 
       <Author>
         <span>Author: </span>
@@ -141,7 +139,7 @@ const RepositoryCard: React.FC<RepositoryCardProps> = ({ repo }) => {
       </RepoInfoContainer>
       <RepoLink href={repo.html_url} target="_blank" rel="noopener noreferrer">
         <HeaderLogo src={logo} alt="header-logo" />
-        Visit Repository
+        View
       </RepoLink>
     </CardContainer>
   );
