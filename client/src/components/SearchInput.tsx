@@ -17,6 +17,7 @@ const InputContainer = styled.div`
   gap: 0.5rem;
   transition: all 0.5s ease-in-out;
   margin-top: 0.4rem;
+  width: 100%;
 `;
 
 const SearchInputField = styled.input`
@@ -26,7 +27,7 @@ const SearchInputField = styled.input`
   border: 0.1rem solid var(--bg-secondary);
   background-color: var(--bg-primary);
   box-shadow: var(--box-shadow);
-
+  width: 70%;
   &::placeholder {
     color: var(--text-secondary);
   }

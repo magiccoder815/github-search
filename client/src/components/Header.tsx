@@ -46,8 +46,9 @@ const Subtitle = styled.p`
 
 const ClearCacheButton = styled.button`
   padding: 0.5rem 1rem;
+  background: none;
   border-radius: 0.5rem;
-  border-color: white;
+  border-color: var(--bg-main);
   font-size: 1rem;
   cursor: pointer;
 `;
@@ -74,7 +75,7 @@ const Header: React.FC = () => {
           <Subtitle>Search users or repositories below</Subtitle>
         </HeaderText>
       </LogoTextContainer>
-      {/* <ClearCacheButton onClick={clearCache}>Clear</ClearCacheButton> */}
+      <ClearCacheButton onClick={clearCache}>Clear Cache</ClearCacheButton>
     </HeaderContainer>
   );
 };

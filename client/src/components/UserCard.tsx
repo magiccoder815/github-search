@@ -133,19 +133,19 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
         <InfoContainer>
           <p>Repositories</p>
           <p>
-            <strong>{user.public_repos}</strong>
+            <strong>{user.public_repos || 0}</strong>
           </p>
         </InfoContainer>
         <InfoContainer>
           <p>Followers</p>
           <p>
-            <strong>{user.followers}</strong>
+            <strong>{user.followers || 0}</strong>
           </p>
         </InfoContainer>
         <InfoContainer>
           <p>Following</p>
           <p>
-            <strong>{user.following}</strong>
+            <strong>{user.following || 0}</strong>
           </p>
         </InfoContainer>
       </UserWorkInfo>

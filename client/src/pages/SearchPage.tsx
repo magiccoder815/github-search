@@ -11,6 +11,10 @@ import SearchInput from "../components/SearchInput";
 import Header from "../components/Header";
 import debounce from "lodash.debounce";
 
+// Import your icons
+import loadingIcon from "../assets/loading-icon.svg";
+import errorIcon from "../assets/error-icon.png";
+
 const PER_PAGE = 15; // Items per page
 
 const Container = styled.div`
@@ -19,13 +23,18 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 3rem;
-  // margin: auto;
   width: 100%;
 `;
 
+const Icon = styled.img`
+  width: 3rem;
+  height: 3rem;
+  margin-top: 2rem;
+`;
+
 const StatusText = styled.p`
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: 1.3rem;
 `;
 
 const ResultsContainer = styled.div`
@@ -53,8 +62,11 @@ const ResultsContainer = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-  margin-top: 0.3rem  
-  margin-bottom: 0.5rem;
+  margin-top: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const SearchPage: React.FC = () => {
@@ -132,18 +144,14 @@ const SearchPage: React.FC = () => {
       <HeaderContainer>
         <Header />
         <SearchInput />
-        {status === "loading" && <StatusText>Loading...</StatusText>}
-        {status === "failed" && <StatusText>Error loading results.</StatusText>}
+        {status === "loading" && <Icon src={loadingIcon} alt="Loading..." />}
+        {status === "failed" && <Icon src={errorIcon} alt="Loading Error!" />}
       </HeaderContainer>
       <InfiniteScroll
         dataLength={results.length}
         next={loadMore}
         hasMore={hasMore}
-        loader={
-          <StatusText>
-            {status !== "initial" ? "Loading more results..." : ""}
-          </StatusText>
-        }
+        loader={<Icon src={loadingIcon} alt="Loading more results..." />}
         endMessage={
           <StatusText>
             {query.length > 0 && status === "idle" && !hasMore
