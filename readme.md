@@ -25,7 +25,8 @@ This project offers scalable UI to work with data from a Django REST API. The fr
 - **React.js** : UI Building
 - **TypeScript** : Type Safety
 - **Redux Toolkit (Redux Slice)**: State Management
-- **React Router**: Navigation
+- **React Router** : Navigation
+- **Infinite Scroll** : Infinite Scrolling for Displaying Results
 - **Styled Components** : CSS-in-JS for Styling
 
 ## Project Structure
