@@ -9,6 +9,7 @@ This web application is developed using Django 4.2.2 and Django REST Framework (
 - [Getting Started](#getting-started)
 - [Configuration](#configuration)
 - [API Documentation](#api-documentation)
+- [Backend Unit Testing](#backend-unit-testing)
 
 ## Overview
 
@@ -145,3 +146,19 @@ You can configure the settings in `settings.py`.
 
 - **Search Endpoint: POST /api/search/**
 - **Clear Cache Endpoint: POST /api/clear-cache/**
+
+## Backend Unit Testing
+
+- **Activate Virtual Environment (if not already activated):**
+
+  ```bash
+  cd backend/backend
+  venv\Scripts\activate  # Windows
+  source venv/bin/activate  # macOS/Linux
+  ```
+
+- **Run Tests:**
+
+  ```bash
+  python3 manage.py test
+  ```
