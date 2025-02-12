@@ -1,128 +1,144 @@
-# Github Searcher
+# Description
 
-This project is a web application built using Django, Django REST Framework (DRF) as the backend, and React.js as the frontend. It also incorporates Redis for caching, Redux for state management, TypeScript, React Router for navigation, and Vanilla CSS for styling.
+This web application is developed using Django 4.2.2 and Django REST Framework (DRF) for the Backend, with React.js for the Frontend. It leverages Redis for caching, Redux for state management, TypeScript for type safety, React Router for navigation, and Styled Components for styling.
 
 ## Table of Contents
 
 - [Overview](#overview)
-- [Technologies](#technologies)
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Running the Application](#running-the-application)
-- [Configuration](#configuration)
-  - [Environment Variables](#environment-variables)
-  - [Redis Setup](#redis-setup)
 - [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Configuration](#configuration)
 - [API Documentation](#api-documentation)
 
 ## Overview
 
-This application provides a modern web interface to interact with data served by a Django REST API. The frontend is built with React, using Redux for state management and TypeScript for type safety. Redis is used to cache frequently accessed data, ensuring faster responses and improved application performance.
-
-## Technologies
+This project offers scalable UI to work with data from a Django REST API. The frontend is developed using React and manages state with Redux, while TypeScript ensures type safety. Redis is used to store frequently accessed data, which speeds up responses and enhances performance. The styling is done with Styled Components, allowing for modular and reusable designs.
 
 ### Backend
 
-- **Django**: The primary backend framework.
-- **Django REST Framework**: To handle RESTful API development.
-- **Redis**: For caching data to improve response times.
+- **Django 4.2.2** : Backend Framework
+- **Django REST Framework** : Restful API Development
+- **Redis** : Caching Data
 
 ### Frontend
 
-- **React.js**: For building a responsive user interface.
-- **TypeScript**: Adds type safety to JavaScript.
-- **Redux**: Manages global application state.
-- **React Router**: Handles client-side routing.
-- **Vanilla CSS**: Custom stylesheets for UI design.
+- **React.js** : UI Building
+- **TypeScript** : Type Safety
+- **Redux Toolkit (Redux Slice)**: State Management
+- **React Router**: Navigation
+- **Styled Components** : CSS-in-JS for Styling
 
-## Features
+## Project Structure
 
-- **Real-time Data Handling**: Redis caching for optimized API performance.
-- **Infinite Scrolling**: New results are loaded automatically as the user scrolls.
-- **Responsive Design**: Clean and responsive UI using Vanilla CSS.
-- **API Documentation**: Available via Swagger for ease of testing and integration.
-- **Efficient State Management**: Managed with Redux for a centralized application state.
+```
+github-searcher/
+│── backend/
+│   │── backend/
+│   │   │── config/
+│   │   │── search/
+│   │   │── .gitignore
+│   │   │── db.sqlite3
+│   │   │── manage.py
+│   │   │── requirements.txt
+│   │   │── .env
+│── frontend/
+│   │── public/
+│   │── src/
+│   │── .env
+│   │── .gitignore
+│   │── package-lock.json
+│   │── package.json
+│   │── README.md
+│   │── tsconfig.json
+│── readme.md
+```
 
 ## Getting Started
 
-### Prerequisites
+### Requirements
 
-Make sure you have the following installed on your system:
-
-- **Python 3.x**
-- **Node.js and npm**
-- **Redis Server**
-- **Django and Django REST Framework**
+- **Python 3.8 or later**
+- **Django 4.2.2 and Django REST Framework**
 - **React.js and TypeScript**
+- **Node.js 16.20.0 or later**
+- **Redis Server**
 
 ### Installation
 
 1. **Clone the repository:**
+
    ```bash
-   git clone 'github url'
-   cd 'project root dir'
+   git clone 'gitlab URL'
+   cd 'github-searcher'
    ```
+
 2. **Backend Setup (Django):**
 
-- **Create a virtual environment and activate it:**
-
-  ```bash
-  python3 -m venv venv
-  venv\Scripts\activate
-  ```
-
-- **Install the Python dependencies:**
-
-  ```bash
-  pip install -r requirements.txt
-  ```
+   - **Create a virtual environment and activate it:**
+     ```bash
+     cd backend/backend
+     python3 -m venv venv
+     venv\Scripts\activate  # Windows
+     source venv/bin/activate  # macOS/Linux
+     ```
+   - **Install the Python dependencies:**
+     ```bash
+     pip install -r requirements.txt
+     ```
 
 3. **Set up the Frontend (React):**
-
-- **Navigate to the frontend directory:**
-  ```bash
-  cd client
-  ```
-- **Install dependencies:**
-  ```bash
-  npm install
-  ```
+   - **Navigate to the frontend directory:**
+     ```bash
+     cd frontend
+     ```
+   - **Install dependencies:**
+     ```bash
+     npm install
+     ```
 
 ### Running the Application
 
 1. **Start the Redis Server:**
-
-2. **Start the Django Server:**
+   #### Windows
    ```bash
-   cd server
-   cd backend
-   python manage.py runserver
+   redis-server
    ```
-3. **Start the React Development Server:**
+   #### Ubuntu
    ```bash
-   cd client
+   sudo apt update
+   sudo apt install redis-server
+   sudo systemctl start redis
+   ```
+2. **Start Backend Server:**
+   ```bash
+   cd backend/backend
+   python3 manage.py runserver
+   ```
+3. **Start Frontend Server:**
+   ```bash
+   cd frontend
    npm start
    ```
-   The application should now be running at http://localhost:3000 (React frontend) and http://localhost:8000/ (Django backend).
+
+The application running:
+
+- http://localhost:3000/ (React)
+- http://localhost:8000/ (Django).
 
 ## Configuration
 
 ### Environment Variables
 
-You can configure the settings in the .env file for both the frontend and the backend.
+You can configure the settings in the `.env` file for both the frontend and the backend.
 
-### Redis Setup
+### Redis Configure
 
-Ensure that Redis is installed and running. The project uses Redis for caching API data. You can adjust settings in settings.py.
+You can configure the settings in `settings.py`.
 
 ## API Documentation
 
-### API documentation is generated with drf_yasg and can be viewed in the following formats:
-
-- **Swagger: http://localhost:8000/api/swagger/**
-- **Redoc: http://localhost:8000/api/redoc/**
+- Swagger: http://localhost:8000/api/swagger/
+- Redoc: http://localhost:8000/api/redoc/
 
 ### Sample Endpoints
 
